@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+    <h1>Enter some info</h1>
+    <p>Columns:</p>
+    <ul>
+        <li>Pregnancies (0-8)</li>
+        <li>Glucose (85-183)</li>
+        <li>BloodPressure (40-72)</li>
+        <li>SkinThickness (0-35)</li>
+        <li>Insulin (0-168)</li>
+        <li>BMI (23.3-43.1)</li>
+        <li>DiabetesPedigreeFunction (0.167-2.288)</li>
+        <li>Age (21-50)</li>
+    </ul>
+    <form>
+        <label>Enter stuff here...</label>
+        <input type="text" id="year"><br>
+        <button type="button" onclick='doStuff()'>Submit</button>
+    </form>
+    <button type="button" onclick="getData()">Get Data</button>
+    <p id="test"></p>
+    
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="static/js/app.js"></script>
+</body>
+</html>
