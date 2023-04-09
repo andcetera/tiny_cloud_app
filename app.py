@@ -11,11 +11,12 @@ def index():
 
 @app.route('/predict')
 def predict():
+    vals = [3, 170, 64, 37, 225, 34.5, 0.356, 30]
     with open('output/model.h5', 'rb') as file:
         model = pickle.load(file)
-    predictions = model.predict([[3, 170, 64, 37, 225, 34.5, 0.356, 30]])
+    predictions = model.predict([vals])
     print(predictions)
-    return 'no errors!'
+    return jsonify('no errors!')
 
 if __name__ == "__main__":
     app.run(debug=True)
