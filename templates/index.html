@@ -8,25 +8,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-    <script>
-        function runModel(){
-            let preg = document.getElementById('preg').value;
-            let gluc = document.getElementById('gluc').value;
-            let blood = document.getElementById('blood').value;
-            let skin = document.getElementById('skin').value;
-            let ins = document.getElementById('ins').value;
-            let bmi = document.getElementById('bmi').value;
-            let dpf = document.getElementById('dpf').value;
-            let age = document.getElementById('age').value;
-            let vals = [preg, gluc, blood, skin, ins, bmi, dpf, age]
-            let url = `/predict/${vals}`
-
-            fetch(url).then(response => response.json())
-            .then(json => {console.log(json);
-            document.getElementById('results').innerHTML = JSON.stringify(json)});
-        };
-    </script>
-    
     <h1>Predicting Diabetes</h1>
     <p>Enter your info:</p>
     <form>
@@ -40,7 +21,7 @@
         <li>DiabetesPedigreeFunction (0.167-2.288) <input type="text" id="dpf"></li>
         <li>Age (21-50) <input type="text" id="age"></li>
     </ul>
-    <button type="button" onclick="runModel()">Submit</button>
+    <button type="button" onclick=runModel()>Submit</button>
     </form>
     <br>
     <br>

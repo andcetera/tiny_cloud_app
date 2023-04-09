@@ -9,7 +9,7 @@ function runModel(){
     let dpf = document.getElementById('dpf').value;
     let age = document.getElementById('age').value;
     let vals = [preg, gluc, blood, skin, ins, bmi, dpf, age]
-    let url = `/predict`
+    let url = `/predict/${vals}`
 
     fetch(url).then(response => response.json())
     .then(json => {console.log(json);

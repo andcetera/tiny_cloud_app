@@ -1,6 +1,5 @@
 
 from flask import Flask, jsonify, render_template
-import json
 import pickle
 
 app = Flask(__name__)
@@ -9,15 +8,20 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/predict')
-def predict():
-    vals = [3, 170, 64, 37, 225, 34.5, 0.356, 30]
+@app.route('/predict/<vals>')
+def predict(vals):
+    items = vals.split(',')
+    vals = [float(i) for i in items]
+
     with open('output/model.h5', 'rb') as file:
         model = pickle.load(file)
     predictions = model.predict([vals])
-    print(predictions)
-    return jsonify('no errors!')
+
+    if predictions[0] == 1:
+        return jsonify('You have indicators for diabetes')
+    else:
+        return jsonify('You do not have indicators for diabetes')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8000, debug=True)
 
