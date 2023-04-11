@@ -16,13 +16,14 @@ def create_bucket(prefix, s3_connection):
         return name, response
 
 # Create new bucket
-# s3_resource = boto3.resource('s3')
-# bucket_name, response = create_bucket(prefix='diabetes', s3_connection=s3_resource)
+s3_resource = boto3.resource('s3')
+bucket_name, response = create_bucket(prefix='diabetes', s3_connection=s3_resource)
 
 # Upload file to bucket
-# filename = 'diabetes.csv'
-# s3_resource.Object(bucket_name, filename).upload_file(Filename=filename)
+filename = 'model.h5'
+s3_resource.Object(bucket_name, filename).upload_file(Filename=../output/filename)
 
 # Delete file & bucket
 # s3_resource.Object(bucket_name, filename).delete()
 # s3_resource.Bucket(bucket_name).delete()
+
